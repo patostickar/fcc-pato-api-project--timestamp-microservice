@@ -15,12 +15,12 @@ app.get("/api/timestamp/:dateString?", (req, res) => {
     } else {
       date = new Date(parseInt(dateString));
     }
+  }
 
-    if (!date.getDate()) {
-      res.json({ error: "Invalid Date" });
-    } else {
-      res.json({ unix: date.getTime(), utc: date.toUTCString() });
-    }
+  if (!date.getDate()) {
+    res.json({ error: "Invalid Date" });
+  } else {
+    res.json({ unix: date.getTime(), utc: date.toUTCString() });
   }
 });
 
